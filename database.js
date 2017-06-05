@@ -9,8 +9,8 @@ var mongojs = require("mongojs");
 var app = express();
 // Database configuration
 // Save the URL of our database as well as the name of our collection
-var databaseUrl = "";
-var collections = ["animals"];
+var databaseUrl = "mongo_scraper";
+var collections = ["reddit"];
 // Use mongojs to hook the database to the db variable
 var db = mongojs(databaseUrl, collections);
 // This makes sure that any errors are logged if mongodb runs into an issue
