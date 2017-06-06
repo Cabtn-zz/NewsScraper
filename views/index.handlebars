@@ -1,0 +1,54 @@
+<!--Main content-->
+<div class="container" id="content-wrapper">
+  <div class="row">
+<!-- This is where we will post the scraped data -->
+    <div class="col-xs-3 col-xs-offset-3" id="left-side-output">
+      {{#each XXXXXXX}}
+          {{#unless this.XXXXXX}}
+            <form action="/" method="GET" class="button-size">
+              <div id="inner-form-left">
+                <span id=> {{this.id}}. {{this.XXXXXXX}} </span>
+                <input type="hidden" name="id" value="{{this.id}}">
+                <button class="btn btn-default left-output-button" type="submit">Comment!!!</button>
+              </div>
+            </form>
+          {{/unless}}
+      {{/each}}
+    </div>
+
+<div class="row submit-area">
+  <div class="col-xs-12">
+    <form method="POST" action="/index" class="button-size">
+    	<textarea id="userBurger" type="text" name="burger_name" maxlength="30" autofocus></textarea>
+      <br>
+    	<button class="btn btn-default" id="submit-button" type="submit">Add to the Menu</button>
+      <p id = "submit-text">Add Comment</p>
+    </form>
+  </div>
+</div>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+
+<!-- Function to stop blank submit -->
+<script>
+    $("#submit-button").on("click", () => {
+      if ($("#userBurger").val().length === 0) {
+        alert("You need to enter a burger before submitting!");
+        return false;
+      };
+
+      return true;
+    });
+</script>
+
+<style>
+body {
+  background-size:cover;
+  background-image: url("https://s-media-cache-ak0.pinimg.com/originals/ba/b8/9d/bab89d24ec9e65cc74ff1c9956e6680d.jpg");
+}
+label {
+  font-size: 20px;
+  font-weight: bold;
+}
+</style>
