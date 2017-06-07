@@ -20,6 +20,12 @@ const databaseUrl = "mongo_scraper";
 const collections = ["reddit"];
 
 mongoose.Promise = Promise;
+
+//Use handlebars information for formatting
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
+
 // Use morgan and body parser with our app
 app.use(logger("dev"));
 app.use(bodyParser.urlencoded({
@@ -66,9 +72,8 @@ app.get("/", (req,res) => {
       result: results
     }
     const scrapedData = new Reddit(results);
-    scrapedData.save(results);
     console.log("Sup mofo")
-    res.json(results)
+    res.render("index", handlebars );
   });
 })
 
